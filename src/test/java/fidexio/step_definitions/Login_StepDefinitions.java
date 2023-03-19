@@ -11,17 +11,13 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
-
-;
-
 public class Login_StepDefinitions {
 
      LoginPage login = new LoginPage();
 
 @Given("user is on the login page")
 public void user_is_on_the_login_page() {
-    Driver.getDriver().get(ConfigurationReader.getProperty("env"));
-    }
+     Driver.getDriver().get("https://qa.fidexio.com/");}
 
    @When("{string} enter username {string} and password {string}")
     public void user_enters_valid_into_username_input_box(String string, String username, String password) {
