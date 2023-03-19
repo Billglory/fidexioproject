@@ -14,29 +14,36 @@ import org.openqa.selenium.Keys;
 public class Login_StepDefinitions {
 
      LoginPage login = new LoginPage();
+  @Given("user opens a browser and goes to login page")
+    public void user_goes_to_login_page() {
+        Driver.getDriver().get(ConfigurationReader.getProperty("env"));
 
-@Given("user is on the login page")
-public void user_is_on_the_login_page() {
-     Driver.getDriver().get("https://qa.fidexio.com/");}
+    }
 
-   @When("{string} enter username {string} and password {string}")
-    public void user_enters_valid_into_username_input_box(String string, String username, String password) {
-    login.inputUsername.sendKeys(username);
-       login.inputPassword.sendKeys(password);
+    @When("user enters valid {string} into username input box")
+    public void user_enters_valid_into_username_input_box(String username) {
 
-        }
+        login.inputUsername.sendKeys(username);
+    }
 
-        @When("user clicks Log in button")
-public void user_clicks_log_in_button() {
- login.loginButton.click();
-}
-@Then("user land on the home page")
-public void user_land_on_the_home_page() {
-   BrowserUtils.verifyTitle("#Inbox - Odoo");
-}
+    @When("user enters valid password into {string} password input box")
+    public void user_enters_valid_password_into_password_input_box(String password) {
+        login.inputPassword.sendKeys(password);
+    }
+
+    @When("user clicks Log in button")
+    public void user_clicks_log_in_button() {
+        login.loginButton.click();
+
+    }
+
+    @Then("user land on the home page")
+    public void user_land_on_the_home_page() {
+        BrowserUtils.verifyTitle("#Inbox - Odoo");
+    }
 
 
-   @When("user enters invalid {string} or invalid {string}")
+    @When("user enters invalid {string} or invalid {string}")
     public void userEntersInvalidOrInvalid(String username, String password) {
         login.inputUsername.sendKeys(username);
         login.inputPassword.sendKeys(password);
