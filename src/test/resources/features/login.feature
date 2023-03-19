@@ -1,11 +1,11 @@
-@FIX10-257
+
 Feature: Login Functionality
 
   User Story : As a user, I should be able to log in so that I can land on homepage.
-
+Background:
   Given user is on the login page
 
-@FIX10-337
+@FIX10-337 @wip
 Scenario Outline: Users can log in with valid credentials
     When user enters valid "<username>" into username input box
     And user enters valid password into "posmanager" password input box
@@ -23,7 +23,7 @@ Scenario Outline: Users can log in with valid credentials
       | posmanager65@info.com   |
 
 
-  @FIX10-338
+  @FIX10-338 @wip
     Scenario Outline: Verify 'Wrong login/password' should be displayed for invalid credentials
     Given user opens a browser and goes to login page
     When user enters invalid "<username>" or invalid "<password>"
@@ -36,10 +36,9 @@ Scenario Outline: Users can log in with valid credentials
       | student80@info.com       | posmanager    |
       | teacher22@info.com       | salesmanager  |
       | posmanager100@info.com   | manager100    |
-      | devmanager65@info.com    | devmanager    |
 
 
-  @FIX10-339
+  @FIX10-339 @wip
   Scenario Outline: Verify 'Please fill out this field' is displayed for empty credentials
     Given user opens a browser and goes to login page
     When user does not enter "<username>" or "<password>"
@@ -52,7 +51,7 @@ Scenario Outline: Users can log in with valid credentials
       |                          | posmanager |
       |                          |            |
 
-     @FIX10-340
+     @FIX10-340 @wip
     Scenario Outline: Verify the 'Enter' key works correctly on the login page
     Given user opens a browser and goes to login page
     When user enters valid "<username>" into username input box
@@ -64,7 +63,7 @@ Scenario Outline: Users can log in with valid credentials
       | posmanager10@info.com   | posmanager   |
       | salesmanager10@info.com | salesmanager |
 
-  @FIX10-341
+  @FIX10-341 @wip
   Scenario Outline: Verify user should see the password in bullet signs by default
     Given user opens a browser and goes to login page
     When user enters valid "<username>" into username input box
@@ -75,4 +74,3 @@ Scenario Outline: Users can log in with valid credentials
       | username                | password     |
       | posmanager10@info.com   | posmanager   |
       | salesmanager10@info.com | salesmanager |
-

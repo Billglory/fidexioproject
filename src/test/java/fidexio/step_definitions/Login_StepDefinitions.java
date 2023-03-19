@@ -14,11 +14,14 @@ import org.openqa.selenium.Keys;
 public class Login_StepDefinitions {
 
      LoginPage login = new LoginPage();
-  @Given("user opens a browser and goes to login page")
-    public void user_goes_to_login_page() {
-        Driver.getDriver().get(ConfigurationReader.getProperty("env"));
+
+
+    @Given("user is on the login page")
+    public void userIsOnTheLoginPage() {
+        Driver.getDriver().get(ConfigurationReader.getProperty("loginUrl"));
 
     }
+
 
     @When("user enters valid {string} into username input box")
     public void user_enters_valid_into_username_input_box(String username) {
@@ -85,4 +88,6 @@ public class Login_StepDefinitions {
     public void userShouldSeePasswordInBulletSigns() {
         Assert.assertTrue(login.inputPassword.getAttribute("type").equals("password"));
     }
+
+
 }

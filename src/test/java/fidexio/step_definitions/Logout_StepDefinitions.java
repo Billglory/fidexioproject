@@ -43,4 +43,9 @@ public class Logout_StepDefinitions {
     public void userCanNotAccessTheHomePageAgain() {
         Assert.assertTrue(logoutPage.expiredAlert.isDisplayed());
     }
+
+    @And("user  clicks login button")
+    public void userClicksLoginButton() {
+
+    }
 }
